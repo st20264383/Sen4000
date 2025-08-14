@@ -8,14 +8,14 @@
 std::fstream fs;
 
 #include <wx/wx.h>
-#include "MainFrame.h"
 
 bool isOpen;
 
 BEGIN_EVENT_TABLE (MainFrame, wxFrame)
 	EVT_MENU(MENU_Quit, MainFrame::OnExit)
 	EVT_MENU(MENU_Open, MainFrame::OpenFile)
-	EVT_MENU(MENU_Close, MainFrame::CloseFile)
+	EVT_MENU(MENU_Close, MainFrame::CloseFile) 
+	EVT_MENU(EDIT_Create, MainFrame::NewObject)
 END_EVENT_TABLE() 
 
 MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& size) 
@@ -112,7 +112,7 @@ void MainFrame::blank()
 	SetTitle(wxT("No document"));
 }
 
-void MainFrame::OpenFile(wxCommandEvent& WXUNUSED(event))
+void MainFrame::OpenFile(wxCommandEvent& event)
 {
 	wxFileDialog *openDialog = new wxFileDialog(this, 
 				wxT("Choose a file to open"), 
@@ -148,7 +148,7 @@ void MainFrame::OpenFile(wxCommandEvent& WXUNUSED(event))
 	openDialog->Destroy();
 }
 
-void MainFrame::CloseFile(wxCommandEvent& WXUNUSED(event))
+void MainFrame::CloseFile(wxCommandEvent& event)
 {
 	fs.close();
 	SetTitle(wxT("No document"));
@@ -157,6 +157,17 @@ void MainFrame::CloseFile(wxCommandEvent& WXUNUSED(event))
 void MainFrame::OnExit(wxCommandEvent& event)
 {
 	// clean up file manager here!
-
+	fs.close();
 	Close(TRUE); // Tells the OS to quit running this process
+}
+
+void MainFrame::NewObject(wxCommandEvent& event)
+{
+	if (fs) 
+	{
+		fs.seekg(0, fs.end); //Sets pointer to end of file
+	}
+
+
+	fs.close();
 }

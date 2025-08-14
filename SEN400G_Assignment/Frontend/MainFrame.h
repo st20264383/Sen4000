@@ -49,6 +49,7 @@ public:
 	void OnExit(wxCommandEvent& event);
 	void OpenFile(wxCommandEvent& event);
 	void CloseFile(wxCommandEvent& event);
+	void NewObject(wxCommandEvent& event);
 	void blank();
 
 	DECLARE_EVENT_TABLE();
