@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "x64\\Debug\\Dimensions.obj",
+            "outputs": [
+                "x64\\Debug\\Dimensions.h_3C555DB5C77E1491.ifc.dt.module.json",
+                "x64\\Debug\\Dimensions.h_3C555DB5C77E1491.ifc.dt.d.json",
+                "Dimensions.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\Uni Work\\Sen4000\\SEN400G_Assignment\\Backend\\Dimensions.h",
+                    "source-path": "c:\\uni work\\sen4000\\sen400g_assignment\\backend\\dimensions.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}
